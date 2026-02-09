@@ -44,7 +44,15 @@ spec:
     tasks:
       - name: fetch-repository
         taskRef:
-          name: git-clone
+          kind: Task
+          params:
+          - name: kind
+            value: task
+          - name: namespace
+            value: openshift-pipelines
+          - name: name
+            value: git-clone
+          resolver: cluster
         workspaces:
           - name: output
             workspace: source
